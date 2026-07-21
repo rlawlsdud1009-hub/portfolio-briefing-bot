@@ -1,0 +1,112 @@
+meta:
+  updated: '2026-07-09'
+  source_chat: Chat 2 Live Portfolio
+  fx_usd_krw: 1380
+  base_currency: KRW
+targets:
+  해외주식:
+    weight: 50
+    band: 5
+  국내주식:
+    weight: 25
+    band: 5
+  안전자산_금:
+    weight: 15
+    band: 3
+  방산_기타:
+    weight: 10
+    band: 3
+holdings:
+- name: 삼성전자
+  ticker: '005930'
+  source: fdr
+  asset_class: 국내주식
+  shares: 2
+  theme: 반도체
+  ref_price: 278000
+  currency: KRW
+- name: 아이온큐
+  ticker: 'IONQ'
+  source: yf
+  asset_class: 해외주식
+  shares: 6.694908
+  theme: 반도체_인접
+  ref_price: 45.81
+  currency: USD
+- name: 알파벳A
+  ticker: 'GOOGL'
+  source: yf
+  asset_class: 해외주식
+  shares: 0.671371
+  theme: 빅테크
+  ref_price: 362.21
+  currency: USD
+- name: 어댑티브바이오테크놀로지스
+  ticker: 'ADPT'
+  source: yf
+  asset_class: 해외주식
+  shares: 2
+  theme: 헬스케어
+  ref_price: 20.21
+  currency: USD
+- name: 엔비디아
+  ticker: 'NVDA'
+  source: yf
+  asset_class: 해외주식
+  shares: 3
+  theme: 반도체
+  ref_price: 204.98
+  currency: USD
+- name: 인텔
+  ticker: 'INTC'
+  source: yf
+  asset_class: 해외주식
+  shares: 3
+  theme: 반도체
+  note: Chat2 DECISION#003 — 1차 축소 대상(매도 예정, 편입처 확정 후 실행)
+  ref_price: 112.61
+  currency: USD
+- name: TIGER KRX금현물
+  ticker: '411060'
+  source: fdr
+  asset_class: 안전자산_금
+  shares: 28
+  theme: 금
+  ref_price: 13110
+  currency: KRW
+- name: GLD
+  ticker: 'GLD'
+  source: yf
+  asset_class: 안전자산_금
+  shares: 1.397198
+  theme: 금
+  ref_price: 376.55
+  currency: USD
+- name: TIGER K방산_우주
+  ticker: '463250'
+  source: fdr
+  asset_class: 방산_기타
+  shares: 5
+  theme: 방산
+  ref_price: 34090
+  currency: KRW
+- name: ITA
+  ticker: 'ITA'
+  source: yf
+  asset_class: 방산_기타
+  shares: 0.173256
+  theme: 방산
+  ref_price: 239.65
+  currency: USD
+rebalance:
+  method: drift_band
+  signals:
+    over: ▲ 초과-축소 검토
+    under: ▼ 부족-편입 검토
+    hold: 유지
+concentration_check:
+  denominator: equity_only
+  theme_tags:
+  - 반도체
+  - 반도체_인접
+  threshold: 35
